@@ -107,5 +107,9 @@ grapAcsDb:PRIMARY> db.runCommand ( { compact: ''COLLECTION_NAME, force: true } )
 ```
 * 명령어 모음
 grapAcsDb:SECONDARY> rs.slaveOk() // SECONDARY 에서 작업을 할 때 필수 선행 명령어
+grapAcsDb:SECONDARY> db.collection.getIndexes() // INDEX 확인
+grapAcsDb:SECONDARY> db.collection.dropIndexes() // 전체 INDEX 삭제
+grapAcsDb:SECONDARY> db.collection.dropIndex({'key': 1}) // 개별 INDEX 삭제
+grapAcsDb:SECONDARY> db.collection.createIndex({'key': 1}, {expireAfterSeconds: seconds}) // TLL INDEX 생성
 db.shutdownServer({force:true}) // shutdown
 ```
