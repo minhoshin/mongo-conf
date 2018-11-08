@@ -113,3 +113,9 @@ grapAcsDb:SECONDARY> db.collection.dropIndex({'key': 1}) // 개별 INDEX 삭제
 grapAcsDb:SECONDARY> db.collection.createIndex({'key': 1}, {expireAfterSeconds: seconds}) // TLL INDEX 생성
 db.shutdownServer({force:true}) // shutdown
 ```
+
+```
+* 실행문 모음
+db.collection.find({}).projection({id:1})
+```
+
