@@ -17,7 +17,7 @@ $ sudo systemctl enable mongod
 $ mongo
 ```
 > use admin
-> db.createUser({user: "Partner", pwd: "Partner0801!", roles: [{ role: "userAdminAnyDatabase", db: "admin"}] })
+> db.createUser({user: "UserID", pwd: "UserPassword", roles: [{ role: "userAdminAnyDatabase", db: "admin"}] })
 ctrl + c // exit
 ```
 
@@ -31,7 +31,7 @@ $ sudo systemctl restart mongod
 
 $ sudo systemctl status mongod
 
-$ mongo -u Partner -p Partner0801! admin
+$ mongo -u UserID -p UserPassword admin
 
 
 $ sudo ufw status
