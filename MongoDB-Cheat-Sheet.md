@@ -31,3 +31,18 @@ $ mongo
 DATABASE 0.000GB
 > show users
 
+> vi /etc/mongod.conf
+```
+# network interfaces
+net:
+  port: 27017
+#  bindIp: 127.0.0.1 // 주석처리
+  bindIp: 0.0.0.0 // 모든 ip 접속 허용
+#  bindIp: 192.168.1.1, 192.168.1.2 // 해당 ip 접속 허용
+```
+
+$ sudo systemctl restart mongod
+$ sudo systemctl status mongod
+
+$ mongo -u ID -p PASSWORD 192.168.12.345/db
+
