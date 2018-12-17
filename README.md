@@ -47,7 +47,7 @@ $ ps -ef | grep mongo // 확인
 * mongo PRIMARY replication 설정
 $ mongo PRIMARY 에서 mongo 로 접속 후 아래 replication 설정 시작
 $ mongo
-> rs.initiate( { "_id": "grapAcsDb", "members": [ { _id: 0, host: "10.5.0.7:27017"} ] } ) // _id 는 mongod.conf replSetName
+> rs.initiate( { "_id": "grapAcsDb", "members": [ { _id: 0, host: "0.0.0.7:27017"} ] } ) // _id 는 mongod.conf replSetName
 > rs.status() // 상태를 확인하면 아래와 같이 변경됨
 grapAcsDb:PRIMARY> // PRIMARY 설정 성공
 grapAcsDb:PRIMARY> use admin // admin database 이동
@@ -62,7 +62,7 @@ grapAcsDb:PRIMARY> db.auth('ROOT_ID','ROOT_PASSWORD')
 1 // root 계정 접근 성공
 
 * mongo SECONDARY replication 설정
-grapAcsDb:PRIMARY> rs.add("10.5.0.8:27017") // mongo PRIMARY 에서 실행
+grapAcsDb:PRIMARY> rs.add("0.0.0.8:27017") // mongo PRIMARY 에서 실행
 { "ok" : 1 }
 > rs.status() // SECONDARY 서버 에서 상태를 확인하면 아래와 같이 변경됨
 grapAcsDb:SECONDARY> // SECONDARY 설정 성공
@@ -72,7 +72,7 @@ grapAcsDb:SECONDARY> db.auth('ROOT_ID','ROOT_PASSWORD')
 grapAcsDb:SECONDARY> rs.status() // PRIMARY, SECONDARY, ARBITER 상태 확인
 
 * mongo ARBITER 설정
-grapAcsDb:PRIMARY> rs.addArb("10.5.0.6:27017") // mongo PRIMARY 에서 실행
+grapAcsDb:PRIMARY> rs.addArb("0.0.0.6:27017") // mongo PRIMARY 에서 실행
 { "ok" : 1 }
 > rs.status() // ARBITER 서버 에서 상태를 확인하면 아래와 같이 변경됨
 grapAcsDb:ARBITER> // ARBITER 설정 성공
